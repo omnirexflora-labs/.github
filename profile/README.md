@@ -384,7 +384,7 @@ We believe in open source and community-driven development. Contributions are we
 
 ## 👨‍💻 About the Creator
 
-**Abiola Adeshina** — A developer from Lagos, Nigeria, building open-source AI infrastructure.
+**Abiola Adeshina** — A software engineer from Lagos, Nigeria, building open-source AI infrastructure.
 
 I believe in creating tools that empower developers worldwide. The Omni Stack is built from real production needs—solving problems I've faced building AI systems at scale. Open source isn't just a license; it's a philosophy that great software should be accessible to everyone, regardless of location or resources.
 
