@@ -12,14 +12,12 @@
 
 ## ✨ Key Highlights
 
-- 🚀 **Production-Ready** — OmniCore Agent v0.2.10 already powering [Santry Technology](https://www.linkedin.com/company/santry/) in production
-- 🔌 **Framework-Agnostic** — Works with any AI framework (OmniCore Agent, LangGraph, CrewAI, AutoGen, or plain Python)
-- ⚡ **Event-Driven** — Transform AI agents into reactive, scalable systems that respond to business events
-- 📈 **Horizontal Scaling** — Scale from 1 instance to 100+ with zero configuration changes
-- 🛠️ **Developer-Friendly** — Register agents with a few lines of code, SDK handles the complexity
-- 💾 **Production Memory** — Multi-tier memory with Redis, PostgreSQL, MongoDB, and vector DB support
-- 🔄 **Real-Time Streaming** — Built-in streaming responses for modern, interactive UX
-- 🌐 **Universal Models** — Support for OpenAI, Claude, Gemini, Ollama, and any LLM via LiteLLM
+- 🚀 **Production-Proven** — OmniCore Agent v0.2.10 already powers [Santry Technology](https://www.linkedin.com/company/santry/) in production, handling real user workflows at scale.
+- 🧠 **Full AI Agent Framework** — OmniCore Agent lets you build autonomous agents with routing, tool orchestration, memory, and scheduling built in.
+- 🔌 **Framework-Agnostic Runtime Engine** — OmniDaemon is the universal event-driven control plane, orchestrating messaging, retries, DLQs, metrics, and horizontal scaling for agents from any framework.
+- 💾 **Production Memory Layer (In Development)** — OmniMemory delivers multi-tier, persistent, semantic memory with Redis, PostgreSQL, MongoDB, and vector DB integrations.
+- ☁️ **Cloud-Native Deployment** — OmniCloud (coming soon) automates multi-cloud deployment, autoscaling, cost controls, and high availability for the entire stack.
+- 🌐 **Universal LLM Support** — The Omni stack works with OpenAI, Claude, Gemini, Ollama, and every LiteLLM-compatible model—swap providers without touching agent code.
 
 ---
 
@@ -31,19 +29,21 @@ Modern AI systems need more than chat interfaces—they require multi-agent coor
 
 We build **open-source AI infrastructure** that empowers developers to deploy and scale autonomous AI agents with the simplicity of modern cloud platforms. **Already powering production systems** and trusted by companies building the future of intelligent automation.
 
+**From experiments to production in minutes, not months.**
+
 ---
 
 ## 🎯 The Problem We Solve
 
-Today's AI landscape is fragmented:
+Today's AI landscape is fragmented, forcing developers to build custom infrastructure for every project:
 
-- **Frameworks** provide intelligence but lack production runtime
-- **Chatbots** are reactive, not autonomous
-- **Multi-agent systems** are complex to orchestrate
-- **Event-driven AI** is missing from most platforms
-- **Production deployment** requires custom infrastructure
+- **Frameworks** (LangChain, CrewAI, etc.) provide intelligence but lack a production runtime
+- **Chatbots** are reactive, not autonomous—they wait for user input instead of reacting to business events
+- **Multi-agent systems** require complex orchestration, message queues, and state management
+- **Event-driven AI** is missing from most platforms—no way to make agents respond to CRM updates, file uploads, or scheduled triggers
+- **Production deployment** demands custom infrastructure for scaling, monitoring, and reliability
 
-**The Omni Stack bridges this gap** by providing a complete, modular ecosystem for building AI agents as **distributed systems**, not chatbots. We connect reasoning, memory, and automation through event-driven architecture.
+**The Omni Stack bridges this gap** by delivering a complete, modular ecosystem for building AI agents as **distributed systems**, not chatbots. We connect reasoning (OmniCore Agent), memory (OmniMemory), orchestration (OmniDaemon), and deployment (OmniCloud) through event-driven architecture.
 
 ---
 
@@ -168,57 +168,59 @@ Start with 1 vCPU and 1GB RAM. OmniDaemon is optimized for I/O-bound AI workload
 
 Free, open, and built by developers who understand production needs. Active development, comprehensive documentation, and a growing ecosystem. Created by developers who understand real-world production needs.
 
+### **Quick Comparison**
+
+| Feature | Traditional AI | Omni Stack |
+|---------|----------------|------------|
+| **Architecture** | Request-response | Event-driven |
+| **Scaling** | Manual configuration | Automatic load balancing |
+| **Memory** | Session-only | Cross-session, semantic persistence |
+| **Deployment** | Custom infrastructure | One-command deployment (OmniCloud) |
+| **Framework Lock-in** | Yes | No — works with any framework |
+| **Production Ready** | Requires custom work | Built-in from day one |
+
 ---
 
 ## 📊 Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    OmniRexflora Labs Stack                   │
+│                   OmniRexflora Labs Stack                    │
 ├─────────────────────────────────────────────────────────────┤
-│                                                               │
-│                    ┌──────────────────┐                      │
-│                    │   OmniCloud      │                      │
-│                    │  (Deployment)    │                      │
-│                    └────────┬─────────┘                      │
-│                             │                                 │
-│                    ┌────────▼─────────┐                      │
-│                    │   OmniDaemon     │                      │
-│                    │  (Event Runtime)  │                      │
-│                    └────────┬─────────┘                      │
-│                             │                                 │
-│                    ┌────────▼─────────┐                      │
-│                    │ OmniCore Agent   │                      │
-│                    │  (Intelligence)   │                      │
-│                    └────────┬─────────┘                      │
-│                             │                                 │
-│                    ┌────────▼─────────┐                      │
-│                    │  OmniMemory       │                      │
-│                    │  (Memory Backend) │                      │
-│                    └───────────────────┘                      │
-│                                                               │
-│  Flow: OmniMemory → OmniCore Agent → OmniDaemon → OmniCloud │
-│  Event-Driven Architecture • Distributed Systems • AI Agents │
+│                                                             │
+│  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐     │
+│  │  OmniCloud   │   │  OmniDaemon  │   │  OmniCore    │     │
+│  │ (Deployment) │──▶│ (Event Runtime)│▶│   Agent      │     │
+│  └──────────────┘   └──────┬───────┘   └──────┬───────┘     │
+│                             │                 │             │
+│                    ┌────────▼─────────────────▼──────┐      │
+│                    │           OmniMemory            │      │
+│                    │        (Memory Backend)         │      │
+│                    │ Redis • PostgreSQL • MongoDB    │      │
+│                    │     • Vector DB integrations    │      │
+│                    └─────────────────────────────────┘      │
+│                                                             │
+│  Event-Driven • Distributed • Production-Ready              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**How It Works:**
+**How Components Work Together:**
 
-1. **OmniMemory** plugs into **OmniCore Agent** as its memory backend (Redis, PostgreSQL, MongoDB, or in-memory)
-2. **OmniCore Agent** plugs into **OmniDaemon** as an agent that runs on the event-driven runtime
-3. **OmniCore Agent** can be deployed using **OmniCloud** (deployment layer)
-4. **OmniDaemon** can also be deployed using **OmniCloud** (deployment layer)
+1. **OmniMemory** provides persistent, semantic memory to **OmniCore Agent**
+2. **OmniCore Agent** registers with **OmniDaemon** to process events and orchestrate workflows
+3. **OmniDaemon** manages messaging, retries, DLQs, metrics, and scaling
+4. **OmniCloud** deploys and governs OmniCore Agent and OmniDaemon across clouds
 
 **In Practice:**
-- Your OmniCore Agent uses OmniMemory for persistent context
-- Your OmniCore Agent registers with OmniDaemon to process events
-- Both OmniCore Agent and OmniDaemon can be deployed via OmniCloud
+- Your OmniCore Agent uses OmniMemory for cross-session context and retrieval
+- OmniDaemon feeds events (CRM updates, file uploads, scheduled jobs) to your agents
+- OmniCloud provisions the infrastructure, autoscaling, and observability needed for production
 
 ---
 
 ## 🎓 Getting Started
 
-### **Start with OmniCore Agent**
+### **Option 1: Start with OmniCore Agent (Recommended)**
 
 Build your first autonomous AI agent in minutes:
 
@@ -239,50 +241,58 @@ agent = OmniAgent(
 response = await agent.run("Analyze sales data and generate report")
 ```
 
-**Key Features You Get:**
-- Universal model support (switch models without code changes)
-- Intelligent routing to specialized sub-agents
+**What You Get:**
+- Universal model support (switch providers without code changes)
+- Intelligent routing across specialized sub-agents
 - Native MCP tool integration
 - Production-grade memory with multiple backends
-- Real-time streaming responses
-- Background agent scheduling
+- Real-time streaming responses and background scheduling
 
-**→ [Full Documentation](https://github.com/omnirexflora-labs/omnicoreagent)**
+**→ [OmniCore Agent Documentation](https://github.com/omnirexflora-labs/omnicoreagent)**
 
-### **Add Event-Driven Runtime**
+---
 
-Transform your OmniCore Agent into an event-driven system with OmniDaemon:
+### **Option 2: Add the Event-Driven Runtime (OmniDaemon)**
+
+Transform your OmniCore Agent into an event-driven system:
 
 ```bash
 # Install
 uv add omnidaemon
 
-# Your OmniCore Agent callback
 from omnicoreagent import OmniAgent
 from omnidaemon import OmniDaemonSDK, AgentConfig
 
-# Initialize your OmniCore Agent
 agent = OmniAgent(...)
 
-# Register with OmniDaemon - just a few lines!
 sdk = OmniDaemonSDK()
 sdk.register_agent(
     AgentConfig(name="file_agent", topic="file.tasks"),
-    callback=lambda msg: agent.run(msg["content"])  # OmniCore Agent runs here
+    callback=lambda msg: agent.run(msg["content"])
 )
 
-# Start runtime - OmniCore Agent now processes events!
-sdk.start()
+sdk.start()  # OmniCore Agent now reacts to events automatically!
 ```
 
 **What You Get:**
-- Automatic load balancing across instances
 - Redis Streams event bus with guaranteed delivery
-- Built-in observability and monitoring
-- Dead letter queues for failed messages
-- Horizontal scaling with zero configuration
+- Automatic load balancing and consumer group management
+- Dead letter queues, retries, and health-aware monitoring
+- Unified CLI + API for observability and control
 
-**→ [Full Documentation](https://github.com/omnirexflora-labs/OmniDaemon)**
+**→ [OmniDaemon Documentation](https://github.com/omnirexflora-labs/OmniDaemon)**
+
+---
+
+### **Option 3: Full Stack (Coming Soon)**
+
+Use OmniMemory for persistent context, run agents through OmniDaemon, and deploy everything via OmniCloud.
+
+```bash
+# Coming soon — full-stack deployment guide
+```
+
+**→ [Architecture Guide](docs/architecture.md)**
 
 ---
 
@@ -366,19 +376,18 @@ We believe in open source and community-driven development. Contributions are we
 
 ## 🗺️ Roadmap
 
-### **Current Status (November 2025)**
-- ✅ OmniCore Agent v0.2.10 (Production - Used by [Santry Technology](https://www.linkedin.com/company/santry/))
-- 📋 OmniDaemon v0.0.1 (Beta - Coming Soon)
-- 📋 OmniMemory v0.1 (Alpha - December 2025)
+### **Current Status (2025)**
+- ✅ **OmniCore Agent v0.2.10** — Production-ready, powering [Santry Technology](https://www.linkedin.com/company/santry/)
+- 🚧 **OmniDaemon v0.0.1** — Beta, active development with Redis Streams runtime
+- 📋 **OmniMemory v0.1** — Alpha, planned for Q1 2026
+- 📋 **OmniCloud v0.1** — Development kicks off Q2 2026
 
-### **2026**
-- 🚧 OmniCore Agent improvements and stability
-- 🚧 OmniDaemon v0.x development and enhancements
-- 🚧 OmniMemory v0.x improvements and feature additions
-- 📋 OmniCloud v0.1 (Alpha - Development begins)
-- 📋 Enhanced multi-agent orchestration
-- 📋 Advanced memory compression
-- 📋 Enterprise features
+### **2026 Roadmap**
+- 🚧 Enhanced multi-agent orchestration and coordination patterns
+- 🚧 Advanced memory compression, summarization, and retrieval tooling
+- 🚧 Enterprise features (SSO, audit logs, advanced monitoring dashboards)
+- 🚧 Additional event bus backends (Kafka, RabbitMQ, NATS JetStream)
+- 🚧 Cloud-native deployment templates and operators for Kubernetes and serverless
 
 ---
 
