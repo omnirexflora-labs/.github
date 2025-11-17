@@ -86,34 +86,100 @@ OmniCore Agent is a powerful Python framework for building autonomous AI agents 
 
 ---
 
-### 🚧 In Development
+Here is the **fully updated, clean, production-ready Markdown section** — replacing **"In Development"** with a strong, accurate phase: **🚀 Public Beta**.
+
+This version is polished for a README, consistent, and positions OmniDaemon exactly where it belongs: **deployed, production-ready, fast-evolving, and stable enough for real systems.**
+
+---
+
+### 🧪 Public Beta
+
 
 #### **OmniDaemon**
+
 **Universal Event-Driven Runtime Engine for AI Agents** — Transform AI agents into event-driven, scalable, autonomous systems.
 
-OmniDaemon is a production-grade runtime engine that provides the infrastructure layer enabling AI agents to listen, react, and process tasks asynchronously across distributed environments. Think of it as the operating system for AI agents—handling orchestration, persistence, messaging, and coordination so your agents can focus on intelligence, not infrastructure.
+OmniDaemon is a production-ready (but fast-evolving) runtime engine that provides the execution fabric enabling AI agents to listen, react, and process tasks asynchronously across distributed environments. Think of it as the operating system for AI agents—handling orchestration, persistence, messaging, and coordination so your agents can focus on intelligence, not infrastructure.
 
-**Key Features:**
+---
 
-- **🔌 Framework-Agnostic Architecture** — Works with any AI agent framework: OmniCore Agent, Google ADK, LangGraph, CrewAI, AutoGen, or even plain Python functions. Your agent code remains unchanged; OmniDaemon provides the event-driven runtime that powers it.
+### **Key Features**
 
-- **📡 Redis Streams Event Bus** — Built on Redis Streams for reliable, durable messaging with consumer groups, automatic load balancing, and message replay capabilities. Enterprise-grade reliability with minimal operational overhead.
+* **🔌 Framework-Agnostic Architecture**
+  Works with any AI agent framework: OmniCoreAgent, Google ADK, LangGraph, CrewAI, AutoGen, or even plain Python functions. Your agent code stays the same—OmniDaemon provides the event-driven runtime beneath it.
 
-- **⚖️ Intelligent Consumer Groups** — Each agent registers with its own consumer group, enabling automatic load distribution across multiple instances. Run one agent or a hundred—Redis coordinates work distribution and ensures every message gets handled exactly once.
+* **📡 Redis Streams Event Bus**
+  Built on Redis Streams for durable messaging, consumer groups, automatic load balancing, and replay support. Enterprise-grade reliability with minimal operational overhead.
 
-- **📊 Built-in Observability** — Comprehensive monitoring through CLI commands, REST API, and real-time metrics. Track task processing, monitor agent health, inspect message streams, view dead letter queues—everything you need for production operations.
+* **⚖️ Intelligent Consumer Groups**
+  Each agent registers under its own consumer group, enabling automatic horizontal scaling across multiple instances. Run one agent or a hundred—Redis guarantees coordinated, exactly-once message handling.
 
-- **🗄️ Pluggable Storage Backend** — Currently supports Redis and JSON storage, with extensible architecture for PostgreSQL, MongoDB, or any database. Automatic TTL management makes data retention effortless.
+* **📊 Built-In Observability**
+  CLI, REST API, and real-time metrics for deep visibility into agent health, task processing, stream backlog, dead-letter queues, and system throughput.
 
-**The Benefits:**
-- **Event-Driven by Design** — Agents respond to business events (CRM updates, file uploads, scheduled triggers, webhook notifications) without polling or constant API requests
-- **Horizontal Scaling Made Simple** — Just start another agent runner instance. No load balancers, no complex orchestration—just run more processes
-- **Developer Experience** — Register your agent with a few lines of code. The SDK handles event bus connections, message parsing, error handling, retries, and metrics
-- **Production Reliability** — Automatic message reclaiming, dead letter queues, graceful shutdown handling, and connection recovery
+* **🗄️ Pluggable Storage Backend**
+  Supports Redis and JSON today, with an extensible architecture designed for PostgreSQL, MongoDB, and more. Includes automatic TTL and retention management.
 
-**Perfect for:** Enterprise AI automation, multi-agent systems, event-driven architectures, microservices with AI, background AI processing, intelligent workflow automation.
+---
+
+### **The Benefits**
+
+* **Event-Driven by Design**
+  Agents react instantly to business events (CRM updates, file uploads, scheduled triggers, webhooks) — no polling, no busy loops.
+
+* **Effortless Horizontal Scaling**
+  Start more agent runner processes and scaling just happens. No service meshes or load balancers needed.
+
+* **Developer Experience First**
+  Register an agent with a few lines; the SDK handles event bus connections, message parsing, retries, errors, metrics, and lifecycle management.
+
+* **Production-Grade Reliability**
+  Automatic message reclaiming, dead-letter queues, reconnection handling, graceful shutdowns, and guaranteed processing semantics.
+
+---
+
+### **Perfect For**
+
+Enterprise AI automation, distributed multi-agent systems, event-driven architectures, microservices with AI components, background AI processing, and intelligent workflow automation.
 
 **→ [Learn More](https://github.com/omnirexflora-labs/OmniDaemon)**
+
+---
+
+### 🚧 In Development
+
+#### **OmniMemory**
+
+**Persistent, context-aware memory backend for All Ai Agent** — Now under active development.
+
+OmniMemory provides both short-term and long-term memory for ai agents, supports hybrid retrieval (vector + keyword + metadata), and enables persistent reasoning across distributed agent ecosystems.
+it is ai agent framwork agnostic
+
+**Key Capabilities:**
+
+* Plugs into OmniCore Agent as its memory system
+* Cross-session memory persistence
+* Semantic search and retrieval
+* Context compression and optimization
+* Multi-tenant memory isolation
+* Vector database integration (Qdrant, ChromaDB, MongoDB Atlas)
+* Multiple backends: Redis, PostgreSQL, MongoDB, SQLite, in-memory
+
+**Powered by SECMSA (Self-Evolving Composite Memory Synthesis Architecture)**
+OmniMemory leverages SECMSA to implement:
+
+* Parallel dual-agent memory construction (Episodic + Summarizer)
+* Canonical memory synthesis with fuzzy deduplication
+* Composite multi-dimensional scoring (`relevance × (1 + recency + importance)`)
+* Deterministic conflict resolution (MERGE | DESTROY | NOOP | ADD)
+* Ephemeral link generation for graph-like relationships without persistent graphs
+* Append-only provenance for perfect causal reconstruction
+* Asynchronous processing via Celery for low latency
+
+**Use Cases:** Multi-agent systems, long-context workflows, intelligent automation, enterprise RAG pipelines, and persistent agent memory.
+
+---
+
 
 #### **OmniCloud**
 **Scalable deployment and control layer** for distributed AI workloads.
@@ -124,19 +190,6 @@ OmniDaemon is a production-grade runtime engine that provides the infrastructure
 - Infrastructure as code
 - Cost optimization and monitoring
 - High availability and disaster recovery
-
-**→ Coming Soon**
-
-#### **OmniMemory**
-**Persistent, context-aware memory backend** for OmniCore Agent.
-
-- Plugs into OmniCore Agent as its memory system
-- Cross-session memory persistence
-- Semantic search and retrieval
-- Context compression and optimization
-- Multi-tenant memory isolation
-- Vector database integration (Qdrant, ChromaDB, MongoDB Atlas)
-- Multiple backends: Redis, PostgreSQL, MongoDB, SQLite, in-memory
 
 **→ Coming Soon**
 
@@ -378,9 +431,9 @@ We believe in open source and community-driven development. Contributions are we
 
 ### **Current Status (2025)**
 - ✅ **OmniCore Agent v0.2.10** — Production-ready, powering [Santry Technology](https://www.linkedin.com/company/santry/)
-- 🚧 **OmniDaemon v0.0.1** — Beta, active development with Redis Streams runtime
-- 📋 **OmniMemory v0.1** — Alpha, planned for Q1 2026
-- 📋 **OmniCloud v0.1** — Development kicks off Q2 2026
+- ✅ **OmniDaemon v0.0.1** — Beta, active development with Redis Streams runtime
+- 🚧 **OmniMemory v0.0.1** — Alpha, planned for Q4 2025
+- 📋 **OmniCloud v0.1** — Development kicks off Q1 2026
 
 ### **2026 Roadmap**
 - 🚧 Enhanced multi-agent orchestration and coordination patterns
